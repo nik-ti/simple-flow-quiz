@@ -130,6 +130,20 @@ export function QuestionCard({
         return false;
     })();
 
+    // Handle Enter key for navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Enter" && isAnswered) {
+                // Prevent default to avoid form submission if wrapped in form
+                e.preventDefault();
+                onNext();
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isAnswered, onNext]);
+
     const getSelection = () => {
         if (typeof answer === "object" && answer !== null && !Array.isArray(answer)) {
             return answer.selection;
@@ -140,13 +154,13 @@ export function QuestionCard({
     const currentSelection = getSelection();
 
     return (
-        <div className="w-full max-w-2xl mx-auto px-4 md:px-0">
+        <div className="w-full max-w-xl mx-auto px-4 md:px-0">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
-                className="glass-panel rounded-3xl p-6 md:p-12 relative overflow-hidden"
+                className="glass-panel rounded-3xl p-6 md:p-10 relative overflow-hidden"
             >
                 {/* Progress Indicator */}
                 <div className="absolute top-0 left-0 w-full h-1 bg-slate-800/50">
