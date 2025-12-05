@@ -7,10 +7,10 @@ export async function POST(request: Request) {
         const body = await request.json();
         const webhookUrl = process.env.WEBHOOK_URL;
 
+        console.log("Submitting to webhook..."); // Log start
+
         if (!webhookUrl) {
             console.error("WEBHOOK_URL is not defined");
-            // Return success to frontend even if webhook fails to not alarm user
-            // But log error on server
             return NextResponse.json({ success: true, warning: "Webhook not configured" });
         }
 
@@ -23,15 +23,18 @@ export async function POST(request: Request) {
         });
 
         if (!response.ok) {
-            console.error("Webhook submission failed", await response.text());
+            const errorText = await response.text();
+            console.error("Webhook submission failed:", response.status, errorText);
+            // We still return success to the client to show the thank you screen
+            // but we log the error on the server
+        } else {
+            console.log("Webhook submission successful");
         }
 
         return NextResponse.json({ success: true });
     } catch (error) {
         console.error("API route error:", error);
-        return NextResponse.json(
-            { error: "Internal Server Error" },
-            { status: 500 }
-        );
+        // Return 200 even on error to ensure UI flow completes, but log it
+        return NextResponse.json({ success: true, error: "Internal Server Error" });
     }
 }
