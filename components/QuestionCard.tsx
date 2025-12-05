@@ -244,13 +244,12 @@ export function QuestionCard({
                                 exit={{ opacity: 0, height: 0 }}
                                 className="overflow-hidden"
                             >
-                                <div className="pt-2">
-                                    <input
-                                        type="text"
+                                <div className="pt-3 pb-1">
+                                    <textarea
                                         value={conditionalText}
                                         onChange={(e) => handleConditionalTextChange(e.target.value)}
                                         placeholder={question.conditionalInput?.placeholder[language]}
-                                        className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl p-4 text-base md:text-lg focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-slate-600 text-slate-200"
+                                        className="w-full bg-slate-900/50 border border-slate-700/50 rounded-xl p-4 text-base md:text-lg focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-slate-500 text-slate-200 resize-none min-h-[100px]"
                                         autoFocus
                                     />
                                 </div>
