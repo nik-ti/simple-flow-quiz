@@ -32,10 +32,11 @@ A premium, animated, single-page quiz application built with Next.js, Tailwind C
 ### Cloudflare Pages
 
 1.  Connect your GitHub repository to Cloudflare Pages.
-2.  Select the **Next.js** framework preset.
-3.  Add the Environment Variable:
+2.  **Build Command**: `npm run pages:build`
+3.  **Build Output Directory**: `.vercel/output/static`
+4.  Add the Environment Variable:
     -   `WEBHOOK_URL`: Your webhook URL.
-4.  Deploy!
+5.  Deploy!
 
 ### Vercel
 
