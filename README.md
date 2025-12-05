@@ -34,9 +34,10 @@ A premium, animated, single-page quiz application built with Next.js, Tailwind C
 1.  Connect your GitHub repository to Cloudflare Pages.
 2.  **Build Command**: `npm run pages:build`
 3.  **Build Output Directory**: `.vercel/output/static`
-4.  Add the Environment Variable:
+4.  **Compatibility Flags**: Go to **Settings** > **Functions** > **Compatibility Flags** and add `nodejs_compat`.
+5.  Add the Environment Variable:
     -   `WEBHOOK_URL`: Your webhook URL.
-5.  Deploy!
+6.  Deploy!
 
 ### Vercel
 
