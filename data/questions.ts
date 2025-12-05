@@ -16,7 +16,10 @@ export interface Question {
         ru: string;
     };
     conditionalInput?: {
-        trigger: string; // The option that triggers the input
+        trigger: {
+            en: string;
+            ru: string;
+        }; // The option that triggers the input
         placeholder: {
             en: string;
             ru: string;
@@ -61,7 +64,10 @@ export const questions: Question[] = [
             ],
         },
         conditionalInput: {
-            trigger: 'Other',
+            trigger: {
+                en: 'Other',
+                ru: 'Другое',
+            },
             placeholder: {
                 en: 'Please describe',
                 ru: 'Пожалуйста, опишите',
@@ -140,7 +146,10 @@ export const questions: Question[] = [
             ru: ['Да', 'Нет'],
         },
         conditionalInput: {
-            trigger: 'Yes',
+            trigger: {
+                en: 'Yes',
+                ru: 'Да',
+            },
             placeholder: {
                 en: 'Please list a few tools you use or examples',
                 ru: 'Пожалуйста, перечислите несколько инструментов или примеров',
@@ -175,7 +184,10 @@ export const questions: Question[] = [
             ],
         },
         conditionalInput: {
-            trigger: 'Other',
+            trigger: {
+                en: 'Other',
+                ru: 'Другое',
+            },
             placeholder: {
                 en: 'Please describe',
                 ru: 'Пожалуйста, опишите',
@@ -218,7 +230,10 @@ export const questions: Question[] = [
             ru: ['Да', 'Нет'],
         },
         conditionalInput: {
-            trigger: 'Yes',
+            trigger: {
+                en: 'Yes',
+                ru: 'Да',
+            },
             placeholder: {
                 en: 'What tool do you wish existed?',
                 ru: 'Какой инструмент вы хотели бы, чтобы существовал?',

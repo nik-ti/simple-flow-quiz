@@ -49,7 +49,7 @@ export function QuestionCard({
 
     const handleChoiceSelect = (option: string) => {
         // If this option triggers input, we need to keep the current text if it exists
-        if (question.conditionalInput?.trigger === option) {
+        if (question.conditionalInput?.trigger[language] === option) {
             onAnswer({ selection: option, details: conditionalText });
         } else {
             onAnswer(option);
@@ -69,7 +69,7 @@ export function QuestionCard({
         }
 
         // Check if any selected option triggers input
-        const triggersInput = question.conditionalInput && newAnswers.includes(question.conditionalInput.trigger);
+        const triggersInput = question.conditionalInput && newAnswers.includes(question.conditionalInput.trigger[language]);
 
         if (triggersInput) {
             onAnswer({ selection: newAnswers, details: conditionalText });
@@ -99,12 +99,12 @@ export function QuestionCard({
 
         if (question.type === "choice") {
             const currentSelection = typeof answer === "object" ? answer.selection : answer;
-            return currentSelection === question.conditionalInput.trigger;
+            return currentSelection === question.conditionalInput.trigger[language];
         }
 
         if (question.type === "multi-select") {
             const currentSelection = typeof answer === "object" && !Array.isArray(answer) ? answer.selection : answer;
-            return Array.isArray(currentSelection) && currentSelection.includes(question.conditionalInput.trigger);
+            return Array.isArray(currentSelection) && currentSelection.includes(question.conditionalInput.trigger[language]);
         }
 
         return false;
