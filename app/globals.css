@@ -3,16 +3,16 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
 
@@ -20,47 +20,68 @@
 }
 
 :root {
-  /* Base colors - Deep Navy / Dark Gray */
-  --background: #0f172a; /* slate-900 */
-  --foreground: #f8fafc; /* slate-50 */
+  /* Base colors - Very Dark Navy / Black Foundation */
+  --background: #0B0F19;
+  --foreground: #E7E9EE;
+  /* Off-white */
 
-  /* Primary - Soft Neon / Blue-Purple */
-  --primary: #6366f1; /* indigo-500 */
+  /* Primary - Muted Gradient (Dark Navy -> Soft Purple) */
+  --primary: #6366f1;
+  /* indigo-500 base, overridden by gradients in UI */
   --primary-foreground: #ffffff;
 
-  /* Secondary - Teal/Navy */
-  --secondary: #1e293b; /* slate-800 */
-  --secondary-foreground: #f1f5f9; /* slate-100 */
+  /* Secondary - Deep Navy */
+  --secondary: #0D1117;
+  --secondary-foreground: #E7E9EE;
 
-  /* Accent - Soft Glow */
-  --accent: #38bdf8; /* sky-400 */
-  --accent-foreground: #0f172a;
+  /* Accent - Soft Desaturated Purple */
+  --accent: #818cf8;
+  /* indigo-400 */
+  --accent-foreground: #0B0F19;
 
   /* Card - Glass effect base */
-  --card: rgba(30, 41, 59, 0.7);
-  --card-foreground: #f8fafc;
+  --card: rgba(255, 255, 255, 0.04);
+  --card-foreground: #E7E9EE;
 }
 
 body {
-  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+  background: radial-gradient(circle at 50% 0%, #1a1f2e 0%, #0B0F19 100%);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glassmorphism utilities */
+/* Premium Glassmorphism utilities */
 .glass-panel {
-  background: rgba(30, 41, 59, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }

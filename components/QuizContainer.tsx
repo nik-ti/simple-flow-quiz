@@ -61,8 +61,11 @@ export default function QuizContainer() {
             // The question ID for contact permission is 'contact_permission'
             // Options are Yes/No (or translated)
             const contactPermission = answers["contact_permission"];
+            // Handle both string answer and object answer (from conditional input logic)
+            const selection = typeof contactPermission === 'object' ? contactPermission.selection : contactPermission;
+
             const wantsContact =
-                contactPermission === "Yes" || contactPermission === "Да";
+                selection === "Yes" || selection === "Да";
 
             if (wantsContact) {
                 setView("contact");
@@ -77,6 +80,9 @@ export default function QuizContainer() {
     const handleBack = () => {
         if (currentQuestionIndex > 0) {
             setCurrentQuestionIndex((prev) => prev - 1);
+        } else {
+            // If at first question, go back to language selection
+            setView("language");
         }
     };
 

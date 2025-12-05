@@ -16,10 +16,10 @@ export function LanguageSelector({ onSelect }: LanguageSelectorProps) {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-center mb-12"
             >
-                <h1 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                    Simple Flow
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100 tracking-tight">
+                    Quick Assessment
                 </h1>
-                <p className="text-slate-400 text-lg">
+                <p className="text-slate-400 text-base md:text-lg font-light">
                     Select your preferred language
                 </p>
             </motion.div>
@@ -58,20 +58,20 @@ function LanguageOption({
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay, ease: "easeOut" }}
-            whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+            whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.03)" }}
             whileTap={{ scale: 0.98 }}
             onClick={onClick}
             className={cn(
-                "glass-panel w-full p-6 rounded-2xl flex items-center gap-4",
-                "hover:border-primary/30 transition-colors duration-300",
+                "glass-panel w-full p-5 rounded-2xl flex items-center gap-4",
+                "hover:border-slate-600 transition-all duration-300",
                 "group cursor-pointer text-left"
             )}
         >
-            <span className="text-4xl filter drop-shadow-lg">{flag}</span>
-            <span className="text-xl font-medium text-slate-200 group-hover:text-white transition-colors">
+            <span className="text-3xl filter drop-shadow-lg">{flag}</span>
+            <span className="text-lg font-medium text-slate-300 group-hover:text-white transition-colors">
                 {label}
             </span>
-            <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary">
+            <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-slate-400">
                 →
             </div>
         </motion.button>

@@ -15,6 +15,13 @@ export interface Question {
         en: string;
         ru: string;
     };
+    conditionalInput?: {
+        trigger: string; // The option that triggers the input
+        placeholder: {
+            en: string;
+            ru: string;
+        };
+    };
 }
 
 export const questions: Question[] = [
@@ -52,6 +59,13 @@ export const questions: Question[] = [
                 'Разработчик / Технический специалист (Пишу код, интегрирую API)',
                 'Другое',
             ],
+        },
+        conditionalInput: {
+            trigger: 'Other',
+            placeholder: {
+                en: 'Please describe',
+                ru: 'Пожалуйста, опишите',
+            },
         },
     },
     {
@@ -125,6 +139,13 @@ export const questions: Question[] = [
             en: ['Yes', 'No'],
             ru: ['Да', 'Нет'],
         },
+        conditionalInput: {
+            trigger: 'Yes',
+            placeholder: {
+                en: 'Please list a few tools you use or examples',
+                ru: 'Пожалуйста, перечислите несколько инструментов или примеров',
+            },
+        },
     },
     {
         id: 'ai_usage_purpose',
@@ -152,6 +173,13 @@ export const questions: Question[] = [
                 'Планирование / принятие решений',
                 'Другое',
             ],
+        },
+        conditionalInput: {
+            trigger: 'Other',
+            placeholder: {
+                en: 'Please describe',
+                ru: 'Пожалуйста, опишите',
+            },
         },
     },
     {
@@ -189,17 +217,12 @@ export const questions: Question[] = [
             en: ['Yes', 'No'],
             ru: ['Да', 'Нет'],
         },
-    },
-    {
-        id: 'contact_permission',
-        text: {
-            en: 'If we build/find a tool or have a suggestion based on what you shared, would you like us to send it to you?',
-            ru: 'Если мы создадим/найдем инструмент или у нас будет предложение на основе того, чем вы поделились, хотите ли вы, чтобы мы отправили его вам?',
-        },
-        type: 'choice',
-        options: {
-            en: ['Yes', 'No'],
-            ru: ['Да', 'Нет'],
+        conditionalInput: {
+            trigger: 'Yes',
+            placeholder: {
+                en: 'What tool do you wish existed?',
+                ru: 'Какой инструмент вы хотели бы, чтобы существовал?',
+            },
         },
     },
     {
@@ -212,6 +235,18 @@ export const questions: Question[] = [
         placeholder: {
             en: 'Short text',
             ru: 'Короткий ответ',
+        },
+    },
+    {
+        id: 'contact_permission',
+        text: {
+            en: 'If we build/find a tool or have a suggestion based on what you shared, would you like us to send it to you?',
+            ru: 'Если мы создадим/найдем инструмент или у нас будет предложение на основе того, чем вы поделились, хотите ли вы, чтобы мы отправили его вам?',
+        },
+        type: 'choice',
+        options: {
+            en: ['Yes', 'No'],
+            ru: ['Да', 'Нет'],
         },
     },
 ];
